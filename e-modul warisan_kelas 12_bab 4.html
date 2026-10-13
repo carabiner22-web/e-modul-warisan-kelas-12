@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Mawaris Kelas 12 - Pak Carabiner</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1b5e20;
+            --primary-light: #2e7d32;
+            --accent: #fbc02d;
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Main Navigation */
+        nav.main-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav.main-nav button {
+            flex: 1;
+            padding: 12px 5px;
+            border: none;
+            background: none;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            font-size: 0.9rem;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav.main-nav button.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        /* Sub Navigation for Material Tabs */
+        .sub-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            margin-bottom: 15px;
+            scrollbar-width: none;
+        }
+
+        .sub-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sub-nav button {
+            white-space: nowrap;
+            padding: 8px 14px;
+            background: #e8f5e9;
+            color: var(--primary);
+            border: 1px solid #c8e6c9;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .sub-nav button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 15px auto;
+            padding: 0 12px;
+        }
+
+        .section, .sub-section {
+            display: none;
+        }
+
+        .section.active, .sub-section.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 6px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--primary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .list-group {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-group li {
+            padding: 8px 10px;
+            background: #f9f9f9;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Form & Calculator Styling */
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.95rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #144016;
+        }
+
+        .btn-accent {
+            background-color: #f57f17;
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #e65100;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            font-size: 0.82rem;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .sample-box {
+            background: #fdfbf7;
+            border: 1px solid #f5e6d3;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Quiz Styling */
+        .question-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .options label {
+            display: block;
+            background: #f9f9f9;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            border: 1px solid #eee;
+            font-size: 0.85rem;
+        }
+
+        .explanation {
+            display: none;
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: #2e7d32;
+        }
+
+        .result-box {
+            display: none;
+            text-align: center;
+            background: #fff8e1;
+            border: 2px solid #ffe082;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .score-val {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .card h2 { font-size: 1.25rem; }
+            th, td { font-size: 0.9rem; }
+            .question-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-kaaba"></i> Media Pembelajaran Mawaris</h1>
+        <p>PAI & Budi Pekerti Kelas 12 | Guru: Carabiner Wikan Sriabidin, S.Pd., Gr.</p>
+    </header>
+
+    <nav class="main-nav">
+        <button class="active" onclick="showTab('materi')"><i class="fa-solid fa-book"></i> Materi</button>
+        <button onclick="showTab('kalkulator')"><i class="fa-solid fa-calculator"></i> Kalkulator Interaktif</button>
+        <button onclick="showTab('kuis')"><i class="fa-solid fa-pen-to-square"></i> Soal HOTS</button>
+    </nav>
+
+    <div class="container">
+
+        <!-- TAB MATERI DENGAN SUB-TAB -->
+        <div id="materi" class="section active">
+            
+            <div class="sub-nav">
+                <button class="active" onclick="showSubTab('sub1')">1. Konsep & Hukum</button>
+                <button onclick="showSubTab('sub2')">2. Rukun & Syarat</button>
+                <button onclick="showSubTab('sub3')">3. Pengurusan Harta</button>
+                <button onclick="showSubTab('sub4')">4. Golongan Ahli Waris</button>
+                <button onclick="showSubTab('sub5')">5. Bagian & Ashabah</button>
+                <button onclick="showSubTab('sub6')">6. Terhalang & Khusus</button>
+                <button onclick="showSubTab('sub7')"><i class="fa-solid fa-calculator"></i> 7. Contoh Kasus & Hitungan</button>
+            </div>
+
+            <!-- SUB-TAB 1: KONSEP & HUKUM -->
+            <div id="sub1" class="sub-section active">
+                <div class="card">
+                    <span class="badge">Pengertian Dasar</span>
+                    <h2><i class="fa-solid fa-book-open"></i> Apa itu Ilmu Waris / Faraidh?</h2>
+                    <p><strong>Bahasa:</strong> Kata <i>Faraidh</i> berasal dari kata <i>faradah</i> yang artinya ketentuan yang sudah ditetapkan.</p>
+                    <p><strong>Istilah:</strong> Ilmu yang mempelajari siapa saja ahli waris yang berhak menerima harta, berapa kadar bagian masing-masing, serta bagaimana tata cara pembagiannya secara syar'i.</p>
+                </div>
+                <div class="card">
+                    <span class="badge">Landasan Syariat</span>
+                    <h2><i class="fa-solid fa-scroll"></i> Dalil Utama Al-Qur'an</h2>
+                    <ul class="list-group">
+                        <li><strong>QS. An-Nisa ayat 7:</strong> Menjelaskan bahwa baik laki-laki maupun perempuan memiliki hak bagian dari harta peninggalan orang tua dan kerabatnya.</li>
+                        <li><strong>QS. An-Nisa ayat 11-12:</strong> Rincian kadar bagian pasti untuk anak, orang tua, dan pasangan.</li>
+                        <li><strong>QS. An-Nisa ayat 14:</strong> Ancaman sanksi neraka bagi siapa saja yang mendurhakai dan melanggar ketetapan hukum waris Allah.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Pentingnya Belajar</span>
+                    <h2><i class="fa-solid fa-shield-halved"></i> Mengapa Wajib Belajar Mawaris?</h2>
+                    <p>Rasulullah SAW bersabda: <i>"Pelajarilah ilmu faraidh dan ajarkanlah, karena ia adalah setengah dari ilmu dan ilmu yang pertama kali dicabut dari umatku."</i> (HR. Ibnu Majah & Al-Hakim).</p>
+                    <br>
+                    <p><strong>Tujuan Utama:</strong> Menghindari perpecahan antar keluarga, menegakkan keadilan, dan mencegah kezaliman dalam pembagian harta.</p>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 2: RUKUN & SYARAT -->
+            <div id="sub2" class="sub-section">
+                <div class="card">
+                    <span class="badge">Syarat Utama</span>
+                    <h2><i class="fa-solid fa-cubes"></i> 3 Rukun Waris</h2>
+                    <ul class="list-group">
+                        <li><strong>1. Muwarrits:</strong> Orang yang meninggal dunia (pewaris) yang meninggalkan harta.</li>
+                        <li><strong>2. Mauruts / Tirkah:</strong> Harta peninggalan yang telah dipilah dan siap dibagi.</li>
+                        <li><strong>3. Ahli Waris:</strong> Orang yang masih hidup yang memiliki hubungan berhak menerima warisan.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Kelayakan</span>
+                    <h2><i class="fa-solid fa-circle-check"></i> Syarat Pewarisan</h2>
+                    <ol style="padding-left: 20px; font-size: 0.88rem;">
+                        <li>Muwarrits dipastikan telah meninggal dunia.</li>
+                        <li>Ahli waris dipastikan masih hidup saat pewaris meninggal.</li>
+                        <li>Memiliki sebab mewarisi (Pertalian darah/Nasab atau Hubungan Pernikahan/Sabab).</li>
+                        <li>Terbebas dari faktor penghalang (Mawani').</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <span class="badge">Penggugur Hak</span>
+                    <h2><i class="fa-solid fa-ban"></i> Halangan Waris (Mawani')</h2>
+                    <p>Seseorang yang sejatinya ahli waris bisa gugur haknya akibat 3 hal:</p>
+                    <ul class="list-group" style="margin-top: 8px;">
+                        <li><strong>Pembunuhan:</strong> Ahli waris yang membunuh pewaris tidak berhak mendapat warisan.</li>
+                        <li><strong>Perbedaan Agama:</strong> Orang muslim tidak mewarisi dari non-muslim, dan sebaliknya.</li>
+                        <li><strong>Perbudakan:</strong> (Sudah tidak relevan di era modern).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 3: PENGURUSAN HARTA -->
+            <div id="sub3" class="sub-section">
+                <div class="card">
+                    <span class="badge">Tahapan Wajib</span>
+                    <h2><i class="fa-solid fa-list-ol"></i> 5 Urutan Pengurusan Harta</h2>
+                    <p style="font-size: 0.85rem; margin-bottom: 10px;">Sebelum harta warisan dibagi kepada ahli waris, wajib diselesaikan urutan berikut:</p>
+                    <ol style="padding-left: 20px; font-size: 0.88rem;">
+                        <li><strong>Pemilahan Harta:</strong> Memisahkan harta pribadi pewaris dari harta bersama/milik orang lain.</li>
+                        <li><strong>Pengurusan Jenazah:</strong> Biaya pemandian, kafan, hingga pemakaman.</li>
+                        <li><strong>Pelunasan Hutang & Zakat:</strong> Membayar semua utang piutang pewaris.</li>
+                        <li><strong>Pelaksanaan Wasiat:</strong> Wasiat diberikan maksimal 1/3 dari sisa harta.</li>
+                        <li><strong>Pembagian Sisa Warisan:</strong> Pembagian kepada ahli waris sesuai ilmu Faraidh.</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <span class="badge">Aturan Wasiat & Hibah</span>
+                    <h2><i class="fa-solid fa-hand-holding-dollar"></i> Perbedaan Waris, Hibah & Wasiat</h2>
+                    <table>
+                        <tr>
+                            <th>Kategori</th>
+                            <th>Waktu Dibagi</th>
+                            <th>Penerima</th>
+                            <th>Maksimal</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Waris</strong></td>
+                            <td>Setelah Meninggal</td>
+                            <td>Ahli Waris</td>
+                            <td>Sesuai Ketentuan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hibah</strong></td>
+                            <td>Saat Masih Hidup</td>
+                            <td>Bebas</td>
+                            <td>Bebas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wasiat</strong></td>
+                            <td>Setelah Meninggal</td>
+                            <td>Bukan Ahli Waris</td>
+                            <td>Maksimal 1/3 Harta</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 4: GOLONGAN AHLI WARIS -->
+            <div id="sub4" class="sub-section">
+                <div class="card">
+                    <span class="badge">Jalur Laki-Laki</span>
+                    <h2><i class="fa-solid fa-person"></i> 15 Ahli Waris Laki-Laki</h2>
+                    <p style="font-size: 0.82rem; margin-bottom: 8px;">Jika ke-15 ahli waris laki-laki ini ada semua, yang berhak menerima hanya 3 orang: <strong>Anak Laki-Laki, Ayah, dan Suami</strong>.</p>
+                    <ul class="list-group">
+                        <li>1. Anak Laki-Laki | 2. Cucu Lk dari anak Lk</li>
+                        <li>3. Ayah | 4. Kakek dari Ayah</li>
+                        <li>5. Saudara Lk Sekandung | 6. Saudara Lk Sebapak | 7. Saudara Lk Seibu</li>
+                        <li>8. Keponakan Lk (Anak Sdr Lk Sekandung) | 9. Keponakan Lk (Anak Sdr Lk Sebapak)</li>
+                        <li>10. Paman Sekandung | 11. Paman Sebapak</li>
+                        <li>12. Sepupu Lk (Anak Paman Sekandung) | 13. Sepupu Lk (Anak Paman Sebapak)</li>
+                        <li>14. Suami | 15. Laki-laki yang memerdekakan budak</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Jalur Perempuan</span>
+                    <h2><i class="fa-solid fa-person-dress"></i> 10 Ahli Waris Perempuan</h2>
+                    <p style="font-size: 0.82rem; margin-bottom: 8px;">Jika ke-10 ahli waris perempuan ini ada semua, yang berhak menerima hanya 5 orang: <strong>Istri, Anak Perempuan, Ibu, Cucu Perempuan, dan Saudara Perempuan Kandung</strong>.</p>
+                    <ul class="list-group">
+                        <li>1. Anak Perempuan | 2. Cucu Perempuan dari Anak Lk</li>
+                        <li>3. Ibu | 4. Nenek dari Ibu | 5. Nenek dari Ayah</li>
+                        <li>6. Saudara Perempuan Sekandung | 7. Saudara Perempuan Sebapak | 8. Saudara Perempuan Seibu</li>
+                        <li>9. Istri | 10. Wanita yang memerdekakan budak</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left: 5px solid #d32f2f;">
+                    <span class="badge" style="background: #ffebee; color: #c62828;">Penting</span>
+                    <h2><i class="fa-solid fa-user-xmark"></i> Yang Bukan Ahli Waris (10 Orang)</h2>
+                    <p style="font-size: 0.82rem;">Anak Angkat / Anak Asuh, Anak Tiri, Mantan Suami/Istri, Mertua/Menantu, Saudara Ipar, Keponakan Perempuan, Cucu dari Anak Perempuan, Paman/Bibi Jalur Ibu.</p>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 5: BAGIAN & ASHABAH -->
+            <div id="sub5" class="sub-section">
+                <div class="card">
+                    <span class="badge">Zawil Furudh</span>
+                    <h2><i class="fa-solid fa-chart-pie"></i> Kadar Bagian (Furudhul Muqaddarah)</h2>
+                    <ul class="list-group">
+                        <li><strong>1/2:</strong> Anak Pr tunggal, Cucu Pr tunggal, Sdr Pr Sekandung, atau Suami (jika tanpa anak).</li>
+                        <li><strong>1/4:</strong> Suami (jika ada anak) atau Istri (jika tanpa anak).</li>
+                        <li><strong>1/8:</strong> Istri (jika pewaris memiliki anak).</li>
+                        <li><strong>2/3:</strong> Dua Anak Pr / lebih (jika tanpa anak laki-laki).</li>
+                        <li><strong>1/3:</strong> Ibu (jika tanpa anak/beberapa saudara).</li>
+                        <li><strong>1/6:</strong> Ayah, Ibu, atau Kakek (jika pewaris memiliki anak).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Penerima Sisa</span>
+                    <h2><i class="fa-solid fa-coins"></i> Mengenal Pembagian Ashabah</h2>
+                    <p style="font-size: 0.85rem;">Ashabah adalah ahli waris yang menerima bagian sisa harta setelah pembagian pasti. Terdapat 3 jenis Ashabah:</p>
+                    <ul class="list-group" style="margin-top: 8px;">
+                        <li><strong>Ashabah Binafsi:</strong> Menjadi penerima sisa karena dirinya sendiri (Anak Lk, Ayah, Sdr Lk).</li>
+                        <li><strong>Ashabah Bilghair:</strong> Anak Perempuan menjadi penerima sisa karena ditarik oleh Anak Laki-Laki (Rasio Lk:Pr = 2:1).</li>
+                        <li><strong>Ashabah Ma'alghair:</strong> Saudara Perempuan menjadi penerima sisa karena bersama dengan Anak Perempuan.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 6: TERHALANG & KHUSUS -->
+            <div id="sub6" class="sub-section">
+                <div class="card">
+                    <span class="badge">Penghalangan</span>
+                    <h2><i class="fa-solid fa-layer-group"></i> Konsep Hijab - Mahjub</h2>
+                    <p><strong>Hijab:</strong> Ahli waris yang lebih dekat menghalangi ahli waris yang lebih jauh.</p>
+                    <ul class="list-group" style="margin-top: 8px;">
+                        <li><strong>Hijab Hirman:</strong> Terhalang sepenuhnya hingga tidak mendapat warisan sama sekali (Contoh: Kakek terhalang oleh Ayah; Cucu terhalang oleh Anak).</li>
+                        <li><strong>Hijab Nuqsan:</strong> Terhalang yang hanya mengurangi porsi bagiannya (Contoh: Porsi Suami berkurang dari 1/2 menjadi 1/4 karena ada anak).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Kasus Khusus</span>
+                    <h2><i class="fa-solid fa-calculator"></i> Metode Aul & Radd</h2>
+                    <p><strong>1. AUL (Pembilang > Penyebut):</strong> Kasus di mana total bagian pasti ahli waris melebihi Asal Masalah (pembilang membengkak). Solusinya: Asal Masalah dinaikkan disamakan dengan pembilang, sehingga porsi semua ahli waris sedikit berkurang secara adil.</p>
+                    <br>
+                    <p><strong>2. RADD (Pembilang < Penyebut):</strong> Kebalikan dari Aul, di mana total bagian ahli waris kurang dari Asal Masalah dan masih ada sisa harta (tanpa ada Ashabah). Solusinya: Sisa harta dikembalikan kepada para ahli waris dengan cara menurunkan Asal Masalah.</p>
+                </div>
+            </div>
+
+            <!-- SUB-TAB 7: CONTOH KASUS & HITUNGAN -->
+            <div id="sub7" class="sub-section">
+                
+                <div class="card">
+                    <span class="badge">Contoh Kasus 1</span>
+                    <h2><i class="fa-solid fa-file-invoice-dollar"></i> Kasus Dasar + Utang & Biaya Jenazah</h2>
+                    <p><strong>Deskripsi Kasus:</strong> Seseorang meninggal dunia meninggalkan harta Rp 50.000.000,-. Memiliki utang Rp 15.000.000,- dan biaya pemakaman Rp 3.000.000,-. Ahli waris terdiri dari: Istri, 2 Anak Laki-Laki, dan 3 Anak Perempuan.</p>
+                    
+                    <div class="sample-box">
+                        <p><strong>Langkah 1: Menghitung Harta Bersih (Tirkah)</strong></p>
+                        <p>Harta Bersih = Rp 50.000.000 - (Rp 15.000.000 + Rp 3.000.000) = <strong>Rp 32.000.000,-</strong></p>
+                        <br>
+                        <p><strong>Langkah 2: Menentukan Porsi & Asal Masalah (AM = 8)</strong></p>
+                        <ul>
+                            <li>• <strong>Istri:</strong> 1/8 (karena ada anak) = 1/8 x Rp 32.000.000 = <strong>Rp 4.000.000,-</strong></li>
+                            <li>• <strong>Sisa Harta:</strong> Rp 32.000.000 - Rp 4.000.000 = <strong>Rp 28.000.000,-</strong></li>
+                        </ul>
+                        <br>
+                        <p><strong>Langkah 3: Pembagian Sisa (Ashabah Bilghair - Rasio 2:1)</strong></p>
+                        <p>Total Poin Anak = (2 Anak Lk x 2) + (3 Anak Pr x 1) = 4 + 3 = <strong>7 Poin</strong></p>
+                        <p>Nilai Per Poin = Rp 28.000.000 / 7 = <strong>Rp 4.000.000,-</strong></p>
+                        <ul>
+                            <li>• <strong>2 Anak Laki-Laki:</strong> 4 poin x Rp 4.000.000 = <strong>Rp 16.000.000,-</strong> (@ Rp 8.000.000)</li>
+                            <li>• <strong>3 Anak Perempuan:</strong> 3 poin x Rp 4.000.000 = <strong>Rp 12.000.000,-</strong> (@ Rp 4.000.000)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="badge">Contoh Kasus 2</span>
+                    <h2><i class="fa-solid fa-arrow-up-right-dots"></i> Kasus Aul (Naik Asal Masalah)</h2>
+                    <p><strong>Deskripsi Kasus:</strong> Seorang istri meninggal dunia meninggalkan harta Rp 60.000.000,-. Ahli waris: Suami, Ayah, Ibu, dan 3 Anak Perempuan.</p>
+                    
+                    <div class="sample-box">
+                        <p><strong>Langkah 1: Cek Bagian Sesuai Syariat (AM = 12)</strong></p>
+                        <ul>
+                            <li>• <strong>Suami:</strong> 1/4 = 3/12</li>
+                            <li>• <strong>Ayah:</strong> 1/6 = 2/12</li>
+                            <li>• <strong>Ibu:</strong> 1/6 = 2/12</li>
+                            <li>• <strong>3 Anak Pr:</strong> 2/3 = 8/12</li>
+                        </ul>
+                        <p><em>Total bagian = 3 + 2 + 2 + 8 = <strong>15/12</strong> (Terjadi Aul, pembilang 15 > penyebut 12).</em></p>
+                        <br>
+                        <p><strong>Langkah 2: Naikkan Asal Masalah menjadi 15 (Aul)</strong></p>
+                        <ul>
+                            <li>• <strong>Suami:</strong> 3/15 x Rp 60.000.000 = <strong>Rp 12.000.000,-</strong></li>
+                            <li>• <strong>Ayah:</strong> 2/15 x Rp 60.000.000 = <strong>Rp 8.000.000,-</strong></li>
+                            <li>• <strong>Ibu:</strong> 2/15 x Rp 60.000.000 = <strong>Rp 8.000.000,-</strong></li>
+                            <li>• <strong>3 Anak Pr:</strong> 8/15 x Rp 60.000.000 = <strong>Rp 32.000.000,-</strong> (@ Rp 10.666.666)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="badge">Contoh Kasus 3</span>
+                    <h2><i class="fa-solid fa-arrow-down-short-wide"></i> Kasus Radd (Pengembalian Sisa Harta)</h2>
+                    <p><strong>Deskripsi Kasus:</strong> Seseorang meninggal dunia meninggalkan harta Rp 10.000.000,-. Ahli waris: Ibu, 1 Saudara Perempuan Kandung, dan 1 Saudara Laki-Laki Seibu.</p>
+                    
+                    <div class="sample-box">
+                        <p><strong>Langkah 1: Cek Bagian Sesuai Syariat (AM = 6)</strong></p>
+                        <ul>
+                            <li>• <strong>Ibu:</strong> 1/6 = 1/6</li>
+                            <li>• <strong>Sdr Pr Kandung:</strong> 1/2 = 3/6</li>
+                            <li>• <strong>Sdr Lk Seibu:</strong> 1/6 = 1/6</li>
+                        </ul>
+                        <p><em>Total bagian = 1 + 3 + 1 = <strong>5/6</strong> (Masih ada sisa 1/6 dan tidak ada Ashabah, berlaku Radd).</em></p>
+                        <br>
+                        <p><strong>Langkah 2: Turunkan Asal Masalah menjadi 5 (Radd)</strong></p>
+                        <ul>
+                            <li>• <strong>Ibu:</strong> 1/5 x Rp 10.000.000 = <strong>Rp 2.000.000,-</strong></li>
+                            <li>• <strong>Sdr Pr Kandung:</strong> 3/5 x Rp 10.000.000 = <strong>Rp 6.000.000,-</strong></li>
+                            <li>• <strong>Sdr Lk Seibu:</strong> 1/5 x Rp 10.000.000 = <strong>Rp 2.000.000,-</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TAB KALKULATOR NATIVE INTERAKTIF -->
+        <div id="kalkulator" class="section">
+            
+            <div class="card">
+                <h2><i class="fa-solid fa-calculator"></i> Simulasi Kalkulator Waris Syariah</h2>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; color: #555;">
+                    Silakan masukkan data harta dan pilih ahli waris yang ada di bawah ini.
+                </p>
+
+                <div class="form-group">
+                    <label>Total Harta Peninggalan Kotor (Rp):</label>
+                    <input type="number" id="hartaKotor" value="100000000" placeholder="Contoh: 100000000">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Utang / Biaya Jenazah (Rp):</label>
+                        <input type="number" id="hutang" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Wasiat (Maks 1/3) (Rp):</label>
+                        <input type="number" id="wasiat" value="0">
+                    </div>
+                </div>
+
+                <hr style="margin: 15px 0;">
+                <p style="font-weight: 700; margin-bottom: 10px; color: var(--primary);"><i class="fa-solid fa-users"></i> Pilih Ahli Waris yang Ada:</p>
+                
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Pasangan:</label>
+                        <select id="pasangan">
+                            <option value="none">Tidak Ada</option>
+                            <option value="suami">Suami</option>
+                            <option value="istri">Istri</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ayah Pewaris:</label>
+                        <select id="ayah">
+                            <option value="ada">Ada</option>
+                            <option value="none">Tidak Ada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Ibu Pewaris:</label>
+                        <select id="ibu">
+                            <option value="ada">Ada</option>
+                            <option value="none">Tidak Ada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kakek (dari Ayah):</label>
+                        <select id="kakek">
+                            <option value="none">Tidak Ada</option>
+                            <option value="ada">Ada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Jumlah Anak Laki-Laki:</label>
+                        <input type="number" id="anakLk" value="1" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah Anak Perempuan:</label>
+                        <input type="number" id="anakPr" value="1" min="0">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Jumlah Cucu Lk (Anak Lk):</label>
+                        <input type="number" id="cucuLk" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah Cucu Pr (Anak Lk):</label>
+                        <input type="number" id="cucuPr" value="0" min="0">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Sdr Lk Sekandung:</label>
+                        <input type="number" id="sdrLkKandung" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Sdr Pr Sekandung:</label>
+                        <input type="number" id="sdrPrKandung" value="0" min="0">
+                    </div>
+                </div>
+
+                <button class="btn" onclick="hitungWarisLengkap()" style="margin-top: 10px;">
+                    <i class="fa-solid fa-calculator"></i> Hitung Pembagian Waris
+                </button>
+
+                <div id="hasilKalkulator" style="margin-top: 15px;"></div>
+
+                <hr style="margin: 20px 0;">
+                <p style="font-size: 0.85rem; text-align: center; color: #666;">
+                    Ingin membandingkan dengan web Kemenag resmi? 
+                    <a href="https://lingga.kemenag.go.id/waris" target="_blank" style="color: var(--primary); font-weight:600;">Klik di sini untuk buka Kemenag di tab baru <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- TAB KUIS HOTS -->
+        <div id="kuis" class="section">
+            <div class="result-box" id="scoreBox">
+                <h3>Hasil Evaluasi Pemahaman</h3>
+                <div class="score-val" id="scoreVal">0</div>
+                <p id="scoreMsg"></p>
+            </div>
+
+            <form id="quizForm">
+                <div id="quizContainer"></div>
+                <button type="button" class="btn" id="submitBtn" onclick="submitQuiz()" style="margin-top: 12px;">
+                    <i class="fa-solid fa-paper-plane"></i> Kumpulkan & Lihat Hasil
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // Main Tab Handler
+        function showTab(tabId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('nav.main-nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Sub Tab Handler for Material
+        function showSubTab(subId) {
+            document.querySelectorAll('.sub-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.sub-nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(subId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Kalkulator Faraidh Lengkap Bawaan App
+        function hitungWarisLengkap() {
+            let hartaKotor = parseFloat(document.getElementById('hartaKotor').value) || 0;
+            let hutang = parseFloat(document.getElementById('hutang').value) || 0;
+            let wasiat = parseFloat(document.getElementById('wasiat').value) || 0;
+
+            let hartaBersih = hartaKotor - hutang - wasiat;
+            if (hartaBersih <= 0) {
+                alert("Harta bersih tidak mencukupi untuk dibagi!");
+                return;
+            }
+
+            let pasangan = document.getElementById('pasangan').value;
+            let ayahAda = document.getElementById('ayah').value === 'ada';
+            let ibuAda = document.getElementById('ibu').value === 'ada';
+            let kakekAda = document.getElementById('kakek').value === 'ada';
+            
+            let anakLk = parseInt(document.getElementById('anakLk').value) || 0;
+            let anakPr = parseInt(document.getElementById('anakPr').value) || 0;
+            let cucuLk = parseInt(document.getElementById('cucuLk').value) || 0;
+            let cucuPr = parseInt(document.getElementById('cucuPr').value) || 0;
+            
+            let sdrLkKandung = parseInt(document.getElementById('sdrLkKandung').value) || 0;
+            let sdrPrKandung = parseInt(document.getElementById('sdrPrKandung').value) || 0;
+
+            let keturunanAda = (anakLk + anakPr + cucuLk + cucuPr) > 0;
+            let sdrTotal = sdrLkKandung + sdrPrKandung;
+
+            let daftarWaris = [];
+            let mahjubList = [];
+
+            // Evaluasi Hijab-Mahjub
+            if (anakLk > 0) {
+                if (cucuLk > 0 || cucuPr > 0) mahjubList.push("Cucu (Terhalang Anak Laki-Laki)");
+                if (sdrTotal > 0) mahjubList.push("Saudara Sekandung (Terhalang Anak Laki-Laki)");
+            }
+            if (ayahAda) {
+                if (kakekAda) mahjubList.push("Kakek (Terhalang Ayah)");
+                if (sdrTotal > 0 && anakLk === 0) mahjubList.push("Saudara Sekandung (Terhalang Ayah)");
+            }
+
+            // Porsi Pasangan
+            let porsiPasangan = 0;
+            if (pasangan === 'suami') {
+                porsiPasangan = keturunanAda ? 1/4 : 1/2;
+                daftarWaris.push({ nama: "Suami", porsiText: keturunanAda ? "1/4" : "1/2", porsiVal: porsiPasangan, tipe: "FM" });
+            } else if (pasangan === 'istri') {
+                porsiPasangan = keturunanAda ? 1/8 : 1/4;
+                daftarWaris.push({ nama: "Istri", porsiText: keturunanAda ? "1/8" : "1/4", porsiVal: porsiPasangan, tipe: "FM" });
+            }
+
+            // Porsi Ibu & Ayah
+            if (ibuAda) {
+                let porsiIbu = (keturunanAda || sdrTotal >= 2) ? 1/6 : 1/3;
+                daftarWaris.push({ nama: "Ibu", porsiText: (keturunanAda || sdrTotal >= 2) ? "1/6" : "1/3", porsiVal: porsiIbu, tipe: "FM" });
+            }
+
+            if (ayahAda) {
+                if (anakLk > 0) {
+                    daftarWaris.push({ nama: "Ayah", porsiText: "1/6", porsiVal: 1/6, tipe: "FM" });
+                } else if (keturunanAda) {
+                    daftarWaris.push({ nama: "Ayah", porsiText: "1/6 + Ashabah", porsiVal: 1/6, tipe: "FM_AS" });
+                } else {
+                    daftarWaris.push({ nama: "Ayah", porsiText: "Ashabah Binafsi", porsiVal: 0, tipe: "AS" });
+                }
+            }
+
+            // Porsi Anak
+            if (anakLk > 0) {
+                if (anakPr > 0) {
+                    daftarWaris.push({ nama: `${anakLk} Anak Laki-Laki & ${anakPr} Anak Perempuan`, porsiText: "Ashabah Bilghair (2:1)", porsiVal: 0, tipe: "AS_KOMB", lk: anakLk, pr: anakPr });
+                } else {
+                    daftarWaris.push({ nama: `${anakLk} Anak Laki-Laki`, porsiText: "Ashabah Binafsi", porsiVal: 0, tipe: "AS_LK", lk: anakLk });
+                }
+            } else if (anakPr > 0) {
+                let porsiAnakPr = (anakPr === 1) ? 1/2 : 2/3;
+                daftarWaris.push({ nama: `${anakPr} Anak Perempuan`, porsiText: (anakPr === 1) ? "1/2" : "2/3", porsiVal: porsiAnakPr, tipe: "FM" });
+            }
+
+            let totalFM = 0;
+            daftarWaris.forEach(w => { if (w.tipe === "FM" || w.tipe === "FM_AS") totalFM += w.porsiVal; });
+
+            let outputHTML = `<h4 style="font-size:0.9rem; margin-bottom:8px;"><i class="fa-solid fa-coins"></i> Harta Bersih Siap Bagi: Rp ${hartaBersih.toLocaleString('id-ID')}</h4>`;
+            
+            if (totalFM > 1 && !daftarWaris.some(w => w.tipe.startsWith("AS"))) {
+                outputHTML += `<p style="color:#c62828; font-size:0.8rem; font-weight:600; margin-bottom:8px;"><i class="fa-solid fa-triangle-exclamation"></i> Terjadi AUL (Total bagian melebihi 1). Porsi disesuaikan.</p>`;
+            }
+
+            outputHTML += `<table><tr><th>Ahli Waris</th><th>Ket. Bagian</th><th>Nominal Diterima</th></tr>`;
+
+            let sisaHarta = Math.max(0, hartaBersih * (1 - totalFM));
+
+            daftarWaris.forEach(w => {
+                let nominal = 0;
+                if (w.tipe === "FM") {
+                    let prop = (totalFM > 1) ? (w.porsiVal / totalFM) : w.porsiVal;
+                    nominal = hartaBersih * prop;
+                } else if (w.tipe === "FM_AS") {
+                    nominal = (hartaBersih * w.porsiVal) + sisaHarta;
+                } else if (w.tipe === "AS_LK" || w.tipe === "AS_KOMB" || w.tipe === "AS") {
+                    nominal = sisaHarta;
+                }
+
+                outputHTML += `<tr>
+                    <td><strong>${w.nama}</strong></td>
+                    <td>${w.porsiText}</td>
+                    <td><strong>Rp ${Math.round(nominal).toLocaleString('id-ID')}</strong></td>
+                </tr>`;
+            });
+
+            outputHTML += `</table>`;
+
+            if (mahjubList.length > 0) {
+                outputHTML += `<div style="margin-top:10px; background:#ffebee; padding:10px; border-radius:6px; font-size:0.8rem; color:#c62828;">
+                    <strong><i class="fa-solid fa-user-slash"></i> Terhalang (Mahjub):</strong><br>
+                    ${mahjubList.join("<br>")}
+                </div>`;
+            }
+
+            document.getElementById('hasilKalkulator').innerHTML = outputHTML;
+        }
+
+        // Quiz Data (15 Soal HOTS)
+        const quizData = [
+            {
+                q: "1. Pak Ahmad meninggal dunia meninggalkan harta sebesar Rp 120.000.000,-. Beliau memiliki utang perawatan RS sebesar Rp 20.000.000,- dan wasiat untuk panti asuhan Rp 10.000.000,-. Berapakah nominal 'Tirkah' (harta bersih) yang siap dibagi kepada ahli waris?",
+                options: ["A. Rp 120.000.000,-", "B. Rp 100.000.000,-", "C. Rp 90.000.000,-", "D. Rp 80.000.000,-"],
+                answer: 2,
+                exp: "Pembahasan: Tirkah bersih dihitung dari Harta Kotor dikurangi Biaya Pengurusan/Utang dan Wasiat (Rp 120jt - Rp 20jt utang - Rp 10jt wasiat = Rp 90.000.000,-)."
+            },
+            {
+                q: "2. Seorang jenazah meninggalkan Suami, 1 Anak Laki-Laki, dan 1 Saudara Laki-Laki Kandung. Kedudukan Saudara Laki-Laki Kandung dalam pembagian waris ini adalah...",
+                options: ["A. Mendapat bagian 1/6", "B. Terhijab Nuqsan", "C. Terhijab Hirman (Gugur haknya) oleh Anak Laki-Laki", "D. Mendapat bagian Ashabah bersama anak"],
+                answer: 2,
+                exp: "Pembahasan: Dalam aturan Hijab-Mahjub, keberadaan Anak Laki-Laki menghalangi (Hijab Hirman) Saudara Laki-Laki Kandung sehingga saudara tidak mendapat bagian sama sekali."
+            },
+            {
+                q: "3. Bu Anita meninggal dunia dengan ahli waris Suami dan 2 Anak Perempuan (tanpa anak laki-laki). Berapakah porsi bagian yang diterima oleh Suami Bu Anita?",
+                options: ["A. 1/2", "B. 1/4", "C. 1/8", "D. Ashabah"],
+                answer: 1,
+                exp: "Pembahasan: Suami mendapat bagian 1/2 jika istri yang meninggal TIDAK memiliki anak, namun karena ada anak (2 Anak Perempuan), porsi suami berkurang (Hijab Nuqsan) menjadi 1/4."
+            },
+            {
+                q: "4. Mengapa seorang anak yang murtad (keluar dari agama Islam) tidak berhak menerima warisan dari orang tuanya yang muslim?",
+                options: ["A. Karena belum dewasa", "B. Adanya Mawani' (penghalang waris) berupa perbedaan agama", "C. Terhijab oleh kerabat laki-laki", "D. Karena tergolong Ashabah Binafsi"],
+                answer: 1,
+                exp: "Pembahasan: Salah satu halangan menerima waris (Mawani' al-Irs) adalah Perbedaan Agama (Beda Agama/Murtad) antara pewaris dan ahli waris."
+            },
+            {
+                q: "5. Pembagian harta waris untuk anak laki-laki dan anak perempuan jika mewarisi bersama-sama ditentukan dengan perbandingan 2 : 1. Ketentuan ini ditegaskan dalam Al-Qur'an surah...",
+                options: ["A. QS. An-Nisa: 7", "B. QS. An-Nisa: 11", "C. QS. An-Nisa: 12", "D. QS. An-Nisa: 19"],
+                answer: 1,
+                exp: "Pembahasan: Ketentuan bagian anak laki-laki sama dengan bagian dua orang anak perempuan (2:1) dijelaskan dalam QS. An-Nisa ayat 11."
+            },
+            {
+                q: "6. Pak Budi meninggal dunia meninggalkan Istri, Ibu, dan 1 Anak Laki-Laki. Bagian yang diterima oleh Ibu Pak Budi adalah...",
+                options: ["A. 1/3", "B. 1/4", "C. 1/6", "D. 2/3"],
+                answer: 2,
+                exp: "Pembahasan: Ibu mendapat 1/3 jika pewaris tidak memiliki anak. Karena ada Anak Laki-Laki, bagian Ibu menjadi 1/6."
+            },
+            {
+                q: "7. Istilah bagi ahli waris yang menerima sisa harta setelah semua bagian pasti (Zawil Furudh) dibagikan adalah...",
+                options: ["A. Muwarrits", "B. Ashabah", "C. Mahjub", "D. Hijab Nuqsan"],
+                answer: 1,
+                exp: "Pembahasan: Ashabah adalah ahli waris yang mendapatkan bagian sisa harta peninggalan."
+            },
+            {
+                q: "8. Jika total bagian pasti ahli waris (Zawil Furudh) melebihi angka Asal Masalah (pembilang > penyebut), maka metode penyelesaian hitungan waris dinamakan...",
+                options: ["A. Radd", "B. Aul", "C. Tirkah", "D. Faraidh"],
+                answer: 1,
+                exp: "Pembahasan: Aul adalah proses menaikkan Asal Masalah agar sesuai dengan jumlah total porsi bagian ahli waris yang membengkak."
+            },
+            {
+                q: "9. Kebalikan dari metode Aul, apabila total bagian ahli waris lebih kecil dari Asal Masalah sehingga harta masih tersisa (tanpa ada ashabah), dinamakan...",
+                options: ["A. Radd", "B. Hijab", "C. Mawani'", "D. Wasiat"],
+                answer: 0,
+                exp: "Pembahasan: Radd adalah mengembalikan sisa harta kepada ahli waris Zawil Furudh dengan cara menurunkan Asal Masalah."
+            },
+            {
+                q: "10. Seorang pewaris meninggalkan harta Rp 48.000.000,-. Ahli warisnya adalah Istri, 1 Anak Laki-Laki, dan 1 Anak Perempuan. Berapakah nominal yang diterima oleh Anak Laki-Laki?",
+                options: ["A. Rp 6.000.000,-", "B. Rp 14.000.000,-", "C. Rp 28.000.000,-", "D. Rp 42.000.000,-"],
+                answer: 2,
+                exp: "Pembahasan: Istri = 1/8 x 48jt = 6jt. Sisa = 42jt. Sisa dibagi Anak Lk & Pr (rasio 2:1 -> total 3 poin). Per poin = 14jt. Anak Lk (2 poin) = 28jt."
+            },
+            {
+                q: "11. Di bawah ini yang BUKAN merupakan ahli waris karena jalur pertalian darah (nasab) adalah...",
+                options: ["A. Anak Perempuan", "B. Ibu", "C. Suami", "D. Saudara Laki-Laki Kandung"],
+                answer: 2,
+                exp: "Pembahasan: Suami/Istri menjadi ahli waris karena hubungan Pernikahan (Sababiyyah), bukan karena pertalian darah (Nasabiyyah)."
+            },
+            {
+                q: "12. Seorang kakek terhalang mendapatkan warisan karena pewaris masih memiliki Ayah yang masih hidup. Jenis hijab ini disebut...",
+                options: ["A. Hijab Nuqsan", "B. Hijab Hirman", "C. Ashabah Bilghair", "D. Radd"],
+                answer: 1,
+                exp: "Pembahasan: Hijab Hirman menyebabkan ahli waris yang lebih jauh (Kakek) terhalang sepenuhnya oleh ahli waris yang lebih dekat (Ayah)."
+            },
+            {
+                q: "13. Pengusulan batasan maksimal harta yang boleh diwasiatkan oleh seseorang sebelum meninggal menurut syariat Islam adalah...",
+                options: ["A. Maksimal 1/2 dari total harta", "B. Maksimal 1/3 dari total harta", "C. Bebas sesuai keinginan pemilik", "D. Maksimal 2/3 dari total harta"],
+                answer: 1,
+                exp: "Pembahasan: Rasulullah SAW melarang berwasiat lebih dari 1/3 harta agar tidak merugikan hak para ahli waris."
+            },
+            {
+                q: "14. Anak angkat dalam hukum kewarisan Islam secara syar'i kedudukannya adalah...",
+                options: ["A. Mendapat bagian 1/2 dari harta", "B. Sama dengan anak kandung laki-laki", "C. Bukan ahli waris (Namun bisa mendapat via Wasiat Wajibah)", "D. Termasuk kelompok Ashabah Binafsi"],
+                answer: 2,
+                exp: "Pembahasan: Anak angkat tidak memiliki hubungan nasab sehingga bukan ahli waris utama, namun dalam hukum di Indonesia dapat memperoleh bagian melalui Wasiat Wajibah."
+            },
+            {
+                q: "15. Hikmah utama disyariatkannya hukum pembagian warisan dalam Islam secara adil adalah...",
+                options: ["A. Menjadikan salah satu ahli waris kaya mendadak", "B. Mencegah perselisihan dan perpecahan dalam keluarga", "C. Mempercepat penjualan aset keluarga", "D. Mengurangi beban pajak pemerintah"],
+                answer: 1,
+                exp: "Pembahasan: Hikmah ilmu waris adalah menegakkan keadilan serta memelihara tali silaturahmi agar tidak terjadi perselisihan antar keluarga."
+            }
+        ];
+
+        // Render Quiz
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            let html = "";
+            quizData.forEach((item, index) => {
+                html += `
+                <div class="question-card" id="qCard_${index}">
+                    <div class="question-text">${item.q}</div>
+                    <div class="options">
+                        ${item.options.map((opt, i) => `
+                            <label>
+                                <input type="radio" name="q_${index}" value="${i}"> ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="explanation" id="exp_${index}">
+                        <strong><i class="fa-solid fa-lightbulb"></i> Kunci & Pembahasan:</strong><br>
+                        ${item.exp}
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        // Submit Quiz
+        function submitQuiz() {
+            let score = 0;
+
+            quizData.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="q_${index}"]:checked`);
+                const expDiv = document.getElementById(`exp_${index}`);
+                
+                expDiv.style.display = 'block';
+
+                if (selected) {
+                    if (parseInt(selected.value) === item.answer) {
+                        score += (100 / quizData.length);
+                    }
+                }
+            });
+
+            let finalScore = Math.round(score);
+
+            const scoreBox = document.getElementById('scoreBox');
+            const scoreVal = document.getElementById('scoreVal');
+            const scoreMsg = document.getElementById('scoreMsg');
+
+            scoreBox.style.display = 'block';
+            scoreVal.innerText = finalScore;
+
+            if (finalScore >= 85) {
+                scoreMsg.innerText = "Sangat Baik! Anda sangat menguasai materi waris.";
+            } else if (finalScore >= 70) {
+                scoreMsg.innerText = "Bagus! Pemahaman Anda tentang Mawaris sudah cukup baik.";
+            } else {
+                scoreMsg.innerText = "Cukup. Silakan pelajari kembali materi dan pembahasan di bawah ini.";
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+
+        window.onload = function() {
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
